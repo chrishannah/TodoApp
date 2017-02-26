@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,24 +38,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case all
     }
     
-    // Sort/Filter UI
+    // Search/Sort/Filter UI
     @IBOutlet weak var sortBySegmentControl: UISegmentedControl!
     @IBOutlet weak var sortByDirectionSegmentControl: UISegmentedControl!
     @IBOutlet weak var sortSectionConstraint: NSLayoutConstraint!
     @IBOutlet weak var filterPrioritySegmentControl: UISegmentedControl!
     @IBOutlet weak var filterCompleteSegmentControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    // Sort/Filter Variables
+    // Search/Sort/Filter Variables
     var sortType = SortType.date
     var sortDirection = SortDirection.asc
     var filterComplete = FilterComplete.all
     var filterPriority = FilterPriority.all
+    var searchQuery = ""
 
     var realm = try! Realm()
     var tasks: Results<TaskItem> {
         get {
             // All Objects
             var objects = realm.objects(TaskItem.self)
+            
+            // Add Search Query
+            if (!searchQuery.isEmpty) {
+                objects = objects.filter("text CONTAINS '\(searchQuery)'")
+            }
             
             // Add Completion Filter
             if (filterComplete == .complete) {
@@ -270,6 +277,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             break
         }
         self.tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchQuery = searchText
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 
 }

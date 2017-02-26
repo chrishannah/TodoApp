@@ -70,5 +70,12 @@ class AddTaskViewController: UIViewController {
     @IBAction func cancelPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func prioritySelected(_ sender: Any) {
+        taskTextField.endEditing(true)
+    }
 
+    @IBAction func dateSelected(_ sender: Any) {
+        taskTextField.endEditing(true)
+    }
 }
