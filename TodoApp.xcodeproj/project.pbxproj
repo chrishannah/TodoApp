@@ -17,6 +17,7 @@
 		9D6455181E634E330024DB3E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455151E634E330024DB3E /* RealmSwift.framework */; };
 		9D6455191E634E330024DB3E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455151E634E330024DB3E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D64551B1E6352030024DB3E /* TaskItem.swift */; };
+		9D64551E1E636A450024DB3E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D64551D1E636A450024DB3E /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		9D6455141E634E330024DB3E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Realm.framework; sourceTree = "<group>"; };
 		9D6455151E634E330024DB3E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../RealmSwift.framework; sourceTree = "<group>"; };
 		9D64551B1E6352030024DB3E /* TaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
+		9D64551D1E636A450024DB3E /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				9D6455011E634DE10024DB3E /* AppDelegate.swift */,
 				9D6455031E634DE10024DB3E /* ViewController.swift */,
 				9D6455051E634DE10024DB3E /* Main.storyboard */,
+				9D64551D1E636A450024DB3E /* AddTaskViewController.swift */,
 				9D64551B1E6352030024DB3E /* TaskItem.swift */,
 				9D6455081E634DE10024DB3E /* Assets.xcassets */,
 				9D64550A1E634DE10024DB3E /* LaunchScreen.storyboard */,
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D6455041E634DE10024DB3E /* ViewController.swift in Sources */,
+				9D64551E1E636A450024DB3E /* AddTaskViewController.swift in Sources */,
 				9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */,
 				9D6455021E634DE10024DB3E /* AppDelegate.swift in Sources */,
 			);
@@ -349,6 +353,7 @@
 				9D6455121E634DE10024DB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

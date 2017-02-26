@@ -8,6 +8,9 @@
 
 import UIKit
 
+public let K_GROUP_ID = "group.com.Christopher-Hannah.TodoApp"
+public let K_DB_NAME = "db.realm"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
