@@ -31,6 +31,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case complete
     }
     
+    enum FilterPriority {
+        case low
+        case medium
+        case high
+        case all
+    }
+    
     // Sort/Filter UI
     @IBOutlet weak var sortBySegmentControl: UISegmentedControl!
     @IBOutlet weak var sortByDirectionSegmentControl: UISegmentedControl!
@@ -42,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var sortType = SortType.date
     var sortDirection = SortDirection.asc
     var filterComplete = FilterComplete.all
+    var filterPriority = FilterPriority.all
 
     var realm = try! Realm()
     var tasks: Results<TaskItem> {
@@ -54,6 +62,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 objects = objects.filter("status = true")
             } else if (filterComplete == .incomplete) {
                 objects = objects.filter("status != true")
+            }
+            
+            // Add Priority Filter
+            if (filterPriority == .low) {
+                objects = objects.filter("priority = 0")
+            } else if (filterPriority == .medium) {
+                objects = objects.filter("priority = 1")
+            } else if (filterPriority == .high) {
+                objects = objects.filter("priority = 2")
             }
             
             // Add Sorting
@@ -217,6 +234,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func filterPriorityChanged(_ sender: Any) {
+        switch filterPrioritySegmentControl.selectedSegmentIndex {
+        case 0:
+            filterPriority = .all
+            break
+        case 1:
+            filterPriority = .low
+            break
+        case 2:
+            filterPriority = .medium
+            break
+        case 3:
+            filterPriority = .high
+            break
+        default:
+            filterPriority = .all
+            break
+        }
+        self.tableView.reloadData()
     }
 
     @IBAction func filterCompleteChanged(_ sender: Any) {
