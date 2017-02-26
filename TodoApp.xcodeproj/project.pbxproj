@@ -12,7 +12,27 @@
 		9D6455071E634DE10024DB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6455051E634DE10024DB3E /* Main.storyboard */; };
 		9D6455091E634DE10024DB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6455081E634DE10024DB3E /* Assets.xcassets */; };
 		9D64550C1E634DE10024DB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D64550A1E634DE10024DB3E /* LaunchScreen.storyboard */; };
+		9D6455161E634E330024DB3E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455141E634E330024DB3E /* Realm.framework */; };
+		9D6455171E634E330024DB3E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455141E634E330024DB3E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D6455181E634E330024DB3E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455151E634E330024DB3E /* RealmSwift.framework */; };
+		9D6455191E634E330024DB3E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455151E634E330024DB3E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D64551B1E6352030024DB3E /* TaskItem.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D64551A1E634E330024DB3E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D6455191E634E330024DB3E /* RealmSwift.framework in Embed Frameworks */,
+				9D6455171E634E330024DB3E /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9D6454FE1E634DE10024DB3E /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +42,10 @@
 		9D6455081E634DE10024DB3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D64550B1E634DE10024DB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D64550D1E634DE10024DB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D6455131E634DFF0024DB3E /* TodoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoApp.entitlements; sourceTree = "<group>"; };
+		9D6455141E634E330024DB3E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Realm.framework; sourceTree = "<group>"; };
+		9D6455151E634E330024DB3E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../RealmSwift.framework; sourceTree = "<group>"; };
+		9D64551B1E6352030024DB3E /* TaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6455181E634E330024DB3E /* RealmSwift.framework in Frameworks */,
+				9D6455161E634E330024DB3E /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +80,16 @@
 		9D6455001E634DE10024DB3E /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				9D6455131E634DFF0024DB3E /* TodoApp.entitlements */,
 				9D6455011E634DE10024DB3E /* AppDelegate.swift */,
 				9D6455031E634DE10024DB3E /* ViewController.swift */,
 				9D6455051E634DE10024DB3E /* Main.storyboard */,
+				9D64551B1E6352030024DB3E /* TaskItem.swift */,
 				9D6455081E634DE10024DB3E /* Assets.xcassets */,
 				9D64550A1E634DE10024DB3E /* LaunchScreen.storyboard */,
 				9D64550D1E634DE10024DB3E /* Info.plist */,
+				9D6455151E634E330024DB3E /* RealmSwift.framework */,
+				9D6455141E634E330024DB3E /* Realm.framework */,
 			);
 			path = TodoApp;
 			sourceTree = "<group>";
@@ -74,6 +104,7 @@
 				9D6454FA1E634DE10024DB3E /* Sources */,
 				9D6454FB1E634DE10024DB3E /* Frameworks */,
 				9D6454FC1E634DE10024DB3E /* Resources */,
+				9D64551A1E634E330024DB3E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -98,6 +129,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 35H8Q2N6J9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D6455041E634DE10024DB3E /* ViewController.swift in Sources */,
+				9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */,
 				9D6455021E634DE10024DB3E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +298,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TodoApp/TodoApp.entitlements;
 				DEVELOPMENT_TEAM = 35H8Q2N6J9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TodoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Christopher-Hannah.TodoApp";
@@ -274,7 +316,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TodoApp/TodoApp.entitlements;
 				DEVELOPMENT_TEAM = 35H8Q2N6J9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TodoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Christopher-Hannah.TodoApp";
