@@ -25,23 +25,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case desc
     }
     
+    enum FilterComplete {
+        case all
+        case incomplete
+        case complete
+    }
+    
     // Sort/Filter UI
     @IBOutlet weak var sortBySegmentControl: UISegmentedControl!
     @IBOutlet weak var sortByDirectionSegmentControl: UISegmentedControl!
     @IBOutlet weak var sortSectionConstraint: NSLayoutConstraint!
+    @IBOutlet weak var filterPrioritySegmentControl: UISegmentedControl!
+    @IBOutlet weak var filterCompleteSegmentControl: UISegmentedControl!
     
     // Sort/Filter Variables
     var sortType = SortType.date
     var sortDirection = SortDirection.asc
+    var filterComplete = FilterComplete.all
 
     var realm = try! Realm()
     var tasks: Results<TaskItem> {
         get {
+            // All Objects
+            var objects = realm.objects(TaskItem.self)
+            
+            // Add Completion Filter
+            if (filterComplete == .complete) {
+                objects = objects.filter("status = true")
+            } else if (filterComplete == .incomplete) {
+                objects = objects.filter("status != true")
+            }
+            
+            // Add Sorting
             var ascending = false
             if sortDirection == .asc {
                 ascending = true
             }
-            return realm.objects(TaskItem.self).sorted(byKeyPath: sortType.rawValue, ascending: ascending)
+            objects = objects.sorted(byKeyPath: sortType.rawValue, ascending: ascending)
+            
+            return objects
         }
     }
     
@@ -186,14 +208,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func toggleSort(_ sender: Any) {
         if let constraint = sortSectionConstraint {
             if constraint.constant == 30 {
-                sortSectionConstraint.constant = 250
+                sortSectionConstraint.constant = 210
             } else {
                 sortSectionConstraint.constant = 30
             }
         }
         
     }
+    
+    @IBAction func filterPriorityChanged(_ sender: Any) {
+    }
 
+    @IBAction func filterCompleteChanged(_ sender: Any) {
+        switch filterCompleteSegmentControl.selectedSegmentIndex {
+        case 0:
+            filterComplete = .all
+            break
+        case 1:
+            filterComplete = .incomplete
+            break
+        case 2:
+            filterComplete = .complete
+            break
+        default:
+            filterComplete = .all
+            break
+        }
+        self.tableView.reloadData()
+    }
 
 }
 

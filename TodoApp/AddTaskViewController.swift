@@ -26,7 +26,6 @@ class AddTaskViewController: UIViewController {
         super.viewDidLoad()
         
         if isEditingTask {
-            print("Editing")
             if task != nil {
                 taskTextField.text = task?.text
                 datePicker.setDate(task?.date as! Date, animated: true)
@@ -41,11 +40,6 @@ class AddTaskViewController: UIViewController {
     }
 
     @IBAction func addTaskPressed(_ sender: Any) {
-        if isEditingTask {
-            try! self.realm.write({
-                self.realm.delete(task!)
-            })
-        }
         let newTask = TaskItem()
         
         if (!(taskTextField.text?.isEmpty)!) {
@@ -58,10 +52,18 @@ class AddTaskViewController: UIViewController {
         
         newTask.priority = prioritySegmentControl.selectedSegmentIndex
         
+        if isEditingTask {
+            try! self.realm.write({
+                task?.text = newTask.text
+                task?.date = newTask.date
+                task?.priority = newTask.priority
+            })
+        } else {
+            try! self.realm.write({
+                self.realm.add(newTask)
+            })
+        }
         
-        try! self.realm.write({
-            self.realm.add(newTask)
-        })
         self.dismiss(animated: true, completion: nil)
     }
 
