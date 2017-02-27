@@ -4,7 +4,7 @@ This is a basic todo app built with Realm as the local database.
 
 ## Features
 
-You can add, edit, and delete tasks, and also toggle them as being completed.
+You can add, edit, and delete tasks, and also toggle them as being completed. The edit and delete functions are availble by swiping a task from right to left.
 
 **Search**
 
