@@ -110,30 +110,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Date
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
-        let date = formatter.string(from: task.date as Date)
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        let date = NSAttributedString(string: formatter.string(from: task.date as Date).uppercased())
+        
         
         // Priority
-        var priority = ""
+        var priority = NSAttributedString()
         switch (task.priority) {
         case 0:
-            priority = "Low"
+            priority = NSAttributedString(string: "LOW")
             break
         case 1:
-            priority = "Medium"
+             priority = NSAttributedString(string: "MEDIUM")
             break
         case 2:
-            priority = "High"
+             priority = NSAttributedString(string: "HIGH")
             break
         default:
-            priority = "Low"
+             priority = NSAttributedString(string: "LOW")
             break
         }
         
-        // Set Description Label
-        let descriptionText = "PRIORITY: \(priority)  DATE: \(date)".uppercased()
-        cell.detailTextLabel!.text = descriptionText
+        // Combine Priority and Date into an Atributed String
+        
+        let priorityTitle = NSAttributedString(string: "PRIORITY: ", attributes: [NSTextEffectAttributeName: NSTextEffectLetterpressStyle])
+        let dateTitle = NSAttributedString(string: "DATE: ", attributes: [NSTextEffectAttributeName: NSTextEffectLetterpressStyle])
+        
+        let finalString = NSMutableAttributedString()
+        finalString.append(priorityTitle)
+        finalString.append(priority)
+        finalString.append(NSAttributedString(string: " "))
+        finalString.append(dateTitle)
+        finalString.append(date)
+            
+        cell.detailTextLabel!.attributedText = finalString
         
         // Completion Status
         if task.status {
