@@ -18,6 +18,7 @@
 		9D6455191E634E330024DB3E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6455151E634E330024DB3E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D64551B1E6352030024DB3E /* TaskItem.swift */; };
 		9D64551E1E636A450024DB3E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D64551D1E636A450024DB3E /* AddTaskViewController.swift */; };
+		9DD2BA6C1E643246002B3D47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2BA6B1E643246002B3D47 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +49,7 @@
 		9D6455151E634E330024DB3E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../RealmSwift.framework; sourceTree = "<group>"; };
 		9D64551B1E6352030024DB3E /* TaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		9D64551D1E636A450024DB3E /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		9DD2BA6B1E643246002B3D47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				9D6455131E634DFF0024DB3E /* TodoApp.entitlements */,
 				9D6455011E634DE10024DB3E /* AppDelegate.swift */,
 				9D6455031E634DE10024DB3E /* ViewController.swift */,
+				9DD2BA6B1E643246002B3D47 /* README.md */,
 				9D6455051E634DE10024DB3E /* Main.storyboard */,
 				9D64551D1E636A450024DB3E /* AddTaskViewController.swift */,
 				9D64551B1E6352030024DB3E /* TaskItem.swift */,
@@ -178,6 +181,7 @@
 			files = (
 				9D6455041E634DE10024DB3E /* ViewController.swift in Sources */,
 				9D64551E1E636A450024DB3E /* AddTaskViewController.swift in Sources */,
+				9DD2BA6C1E643246002B3D47 /* README.md in Sources */,
 				9D64551C1E6352030024DB3E /* TaskItem.swift in Sources */,
 				9D6455021E634DE10024DB3E /* AppDelegate.swift in Sources */,
 			);
