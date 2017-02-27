@@ -125,7 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
              priority = NSAttributedString(string: "MEDIUM")
             break
         case 2:
-             priority = NSAttributedString(string: "HIGH")
+            priority = NSAttributedString(string: "HIGH", attributes: [NSForegroundColorAttributeName: UIColor.red])
             break
         default:
              priority = NSAttributedString(string: "LOW")
