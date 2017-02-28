@@ -1,3 +1,5 @@
+**Support Me** - If you like what I'm doing, then help a student continue by donating a coffee! <a href="https://www.patreon.com/bePatron?u=5214284" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://cdn6.patreon.com/becomePatronButton.bundle.js"></script>
+
 # TodoApp
 
 This is a basic todo app built with Realm as the local database.
