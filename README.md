@@ -2,6 +2,8 @@
 
 # TodoApp
 
+![Screenshot](https://github.com/chrishannah/TodoApp/blob/master/fullsizeoutput_f63.jpeg?raw=true)
+
 This is a basic todo app built with Realm as the local database.
 
 ## Features
